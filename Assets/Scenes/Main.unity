@@ -160,7 +160,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5b7645a6c68f5f84b823e5b0da0414b4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1500
+  jumpSpeed: 3250
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
   yamuk: {fileID: 3470025815145913157}
@@ -335,7 +336,7 @@ GameObject:
   - component: {fileID: 350068582}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
