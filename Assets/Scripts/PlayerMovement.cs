@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 1000f; // Speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement;
-
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private GameObject yamuk;
+    private bool isLookingRight = true;
     
     // Start is called before the first frame update
     void Start()
@@ -33,10 +33,16 @@ public class PlayerMovement : MonoBehaviour
     private void FlipSprite()
     {
         if(movement == Vector2.zero) return;
-        
-        if (movement.x > 0)
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+        if (movement.x > 0) // TODO: Same process may be needed for other light types
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); 
+        } 
         else if (movement.x < 0)
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        {
+            isLookingRight = false;
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); 
+        }
+            
     }
 }
