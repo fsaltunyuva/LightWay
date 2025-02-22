@@ -299,6 +299,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
   yamuk: {fileID: 3470025815145913157}
+  amIFacingLeft: 0
 --- !u!1 &350068578
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivotTransform: {fileID: 1148079051}
+  playerMovement: {fileID: 211633537}
 --- !u!1 &1916325246
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +902,7 @@ MonoBehaviour:
   flashlightSpriteRenderer: {fileID: 3879564645821803796}
   flashlightLightSpriteRenderer: {fileID: 4183780863248820273}
   laserSpriteRenderer: {fileID: 2759945945261338346}
-  laserDisappearDuration: 5
+  laserDisappearDuration: 15
   laserDisappearPivot: {fileID: 6899766074513316303}
   laserPrefab: {fileID: 2925223539525315865, guid: b69eaccc3ed951e41a4425c2c6e803a4, type: 3}
 --- !u!4 &411230689437217122 stripped
@@ -1010,6 +1012,7 @@ MonoBehaviour:
   fadeDuration: 1
   flashlightCollider: {fileID: 2596255183792490497}
   flashlightLightPrefab: {fileID: 2039197628031742207, guid: 699f85e6376ed4e47a2bd21f7b617253, type: 3}
+  playerMovement: {fileID: 211633537}
 --- !u!1 &3470025815145913157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2039197628031742207, guid: 699f85e6376ed4e47a2bd21f7b617253, type: 3}

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement;
     [SerializeField] private GameObject yamuk;
+    public bool amIFacingLeft = false;
     
     // Start is called before the first frame update
     void Start()
@@ -31,13 +32,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if(movement == Vector2.zero) return;
 
-        if (movement.x > 0) // TODO: Same process may be needed for other light types
+        if (movement.x > 0) 
         {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); 
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            amIFacingLeft = false;
         } 
         else if (movement.x < 0)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); 
+            amIFacingLeft = true;
         }
             
     }

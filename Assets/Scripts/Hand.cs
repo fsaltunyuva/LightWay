@@ -26,15 +26,11 @@ public class Hand : MonoBehaviour
     private void Start()
     {
         lightList = new CircularLinkedList();
-        // foreach (string lightType in lightTypes)
-        // {
-        //     lightList.AddNode(3, lightType);
-        // }
+        // TODO: Change according to the level's requirements
         lightList.AddNode(0, "Flashlight");
         lightList.AddNode(3, "Fire");
-        lightList.AddNode(1, "Laser");
+        lightList.AddNode(10, "Laser");
         currentNode = lightList.head;
-        //currentNode = currentNode.next;
     }
 
     void Update()

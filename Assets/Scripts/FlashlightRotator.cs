@@ -13,6 +13,7 @@ public class FlashlightRotator : MonoBehaviour
     private Vector3 oldFlashlightPosition;
     private Quaternion oldFlashlightRotation;
     private GameObject newFlashlight;
+    [SerializeField] private PlayerMovement playerMovement;
     
     private void Update()
     {
@@ -26,7 +27,15 @@ public class FlashlightRotator : MonoBehaviour
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; 
 
-            Vector3 direction = mousePosition - pivotTransform.position;
+            Vector3 direction;
+            if(playerMovement.amIFacingLeft)
+            {
+                direction = -(mousePosition - pivotTransform.position);
+            }
+            else
+            {
+                direction = mousePosition - pivotTransform.position;
+            }
         
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
