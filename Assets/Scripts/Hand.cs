@@ -1,15 +1,12 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
     private string currentLightType = "Flashlight"; // Others "Fire", "Laser", "Flashlight"
-    [SerializeField] private GameObject flashlightPrefab, firePrefab, laserPrefab;
+    [SerializeField] private GameObject firePrefab;
     [SerializeField] private GameObject atesPreview;
     [SerializeField] private GameObject atesOnHand;
-    private string[] lightTypes = {"Flashlight", "Fire", "Laser"};
     private CircularLinkedList lightList;
     int currentCount = 0;
     [SerializeField] private GameObject flashlight;
@@ -21,6 +18,9 @@ public class Hand : MonoBehaviour
     [SerializeField] private SpriteRenderer flashlightSpriteRenderer;
     [SerializeField] private SpriteRenderer flashlightLightSpriteRenderer;
     [SerializeField] private SpriteRenderer laserSpriteRenderer;
+    [SerializeField] private int laserDisappearDuration = 5;
+    [SerializeField] private GameObject laserDisappearPivot;
+    [SerializeField] private GameObject laserPrefab;
     
 
     private void Start()
@@ -73,7 +73,6 @@ public class Hand : MonoBehaviour
                     //     _flashlightRotator.InstantiateNewFlashlightLight();
                     _flashlightRotator.SecondMethod();
                     currentNode.count--;
-                    
                     break;
                 case "Fire":
                     if(currentNode.count <= 0) return;
@@ -82,13 +81,38 @@ public class Hand : MonoBehaviour
                     break;
                 case "Laser":
                     if(currentNode.count <= 0) return;
-                    Debug.Log("Laser Used.");
-                    // TODO: Laser
+                    
+                    Vector3 laserPosition = laser.transform.position;
+                    Quaternion laserRotation = laser.transform.rotation;
+                    Vector3 laserScale = laser.transform.lossyScale;
+                    
+                    GameObject newLaser = Instantiate(laser, laserPosition, laserRotation);
+                    newLaser.transform.localScale = laserScale;
+                    newLaser.transform.SetParent(null);
+                    
+                    newLaser.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
+                    
+                    StartCoroutine(DestroyLaserFromLeft(newLaser));
                     currentNode.count--;
                 break;
             }
         }
 
+    }
+    
+    IEnumerator DestroyLaserFromLeft(GameObject newLaser)
+    {
+        float time = 0;
+        float startScaleX = newLaser.transform.localScale.x;
+        
+        while (time < laserDisappearDuration)
+        {
+            time += Time.deltaTime;
+            float scaleX = Mathf.Lerp(startScaleX, 0, time / laserDisappearDuration);
+            newLaser.transform.localScale = new Vector3(scaleX, newLaser.transform.lossyScale.y, newLaser.transform.lossyScale.z);
+            yield return null;
+        }
+        Destroy(newLaser);
     }
 
     private void placeFireOnHand()

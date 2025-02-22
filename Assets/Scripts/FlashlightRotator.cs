@@ -21,8 +21,8 @@ public class FlashlightRotator : MonoBehaviour
             // isPlaced = true;
             // StartCoroutine(EnableDrop());
         }
-        if (!isPlaced)
-        {
+        // if (!isPlaced)
+        // {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; 
 
@@ -31,7 +31,7 @@ public class FlashlightRotator : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             transform.rotation = Quaternion.Euler(0, 0, angle);
-        }
+        // }
     }
 
     public void placeFlashLight()
