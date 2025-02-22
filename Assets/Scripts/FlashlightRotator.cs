@@ -8,6 +8,7 @@ public class FlashlightRotator : MonoBehaviour
     [SerializeField] private SpriteRenderer flashlightSpriteRenderer;
     public bool isPlaced = false;
     public float fadeDuration = 1f; 
+    [SerializeField] private PolygonCollider2D flashlightCollider;
     
     private void Update()
     {
@@ -31,6 +32,7 @@ public class FlashlightRotator : MonoBehaviour
 
     public void placeFlashLight()
     {
+        flashlightCollider.isTrigger = false; // To prevent flashlight from passing through walls
         isPlaced = true;
         StartCoroutine(EnableDrop());
     }

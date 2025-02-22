@@ -61,6 +61,9 @@ public class Hand : MonoBehaviour
                 case "Fire":
                     Instantiate(firePrefab, atesPreview.transform.position, Quaternion.identity);
                     break;
+                case "Laser":
+                    // TODO: Laser
+                break;
             }
         }
 

@@ -699,6 +699,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5723628737493209258, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
   m_PrefabInstance: {fileID: 9171132156187315183}
   m_PrefabAsset: {fileID: 0}
+--- !u!60 &1625654165 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6575721990299239406, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
+  m_PrefabInstance: {fileID: 9171132156187315183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1875900730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 516057896018488562, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
@@ -934,6 +939,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723628737493209258, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990124369444854507, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
+      propertyPath: flashlightCollider
+      value: 
+      objectReference: {fileID: 1625654165}
+    - target: {fileID: 6575721990299239406, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575721990299239406, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6628472531815400005, guid: 7abc6f0b8d0858b408e57fdd29712417, type: 3}
