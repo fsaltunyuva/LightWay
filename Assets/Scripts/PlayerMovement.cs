@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 1000f; // Speed variable
+    public float speed = 1000f; // Speed variable //TODO: ???
     public float jumpSpeed = 100f; // Jump speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement;
@@ -22,12 +22,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Jump();
         movement = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
         Run();
         FlipSprite();
         _animator.SetBool("walk", movement != Vector2.zero);
-        Jump();
-        
     }
 
     private void Run(){
@@ -39,8 +38,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(grounded)
+            if (grounded)
+            {
                 rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+                Debug.Log("Jumped");
+            }
         }
     }
 
@@ -66,10 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Grounded");
-            Vector3 normal = other.GetContact(0).normal;
-            
-            if(normal == Vector3.up)
-                grounded = true;
+            grounded = true;
         }
     }
     

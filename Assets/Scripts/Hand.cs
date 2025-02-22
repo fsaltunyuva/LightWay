@@ -22,14 +22,18 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject laserDisappearPivot;
     [SerializeField] private GameObject laserPrefab;
     
+    [SerializeField] private int flashlightCount = 3;
+    [SerializeField] private int fireCount = 3;
+    [SerializeField] private int laserCount = 3;
+    
 
     private void Start()
     {
         lightList = new CircularLinkedList();
         // TODO: Change according to the level's requirements
-        lightList.AddNode(0, "Flashlight");
-        lightList.AddNode(3, "Fire");
-        lightList.AddNode(10, "Laser");
+        lightList.AddNode(flashlightCount, "Flashlight");
+        lightList.AddNode(fireCount, "Fire");
+        lightList.AddNode(laserCount, "Laser");
         currentNode = lightList.head;
     }
 
