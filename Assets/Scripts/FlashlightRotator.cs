@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlashlightRotator : MonoBehaviour
@@ -7,17 +6,16 @@ public class FlashlightRotator : MonoBehaviour
     [SerializeField] private Transform pivotTransform;
     [SerializeField] private GameObject flashlight;
     [SerializeField] private SpriteRenderer flashlightSpriteRenderer;
-    private bool isPlaced = false;
+    public bool isPlaced = false;
     public float fadeDuration = 1f; 
     
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            isPlaced = true;
-            StartCoroutine(EnableDrop());
+            // isPlaced = true;
+            // StartCoroutine(EnableDrop());
         }
-
         if (!isPlaced)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -29,6 +27,12 @@ public class FlashlightRotator : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
+    }
+
+    public void placeFlashLight()
+    {
+        isPlaced = true;
+        StartCoroutine(EnableDrop());
     }
 
     IEnumerator EnableDrop()
