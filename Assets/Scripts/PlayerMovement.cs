@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,15 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public bool amIFacingLeft = false;
     private Animator _animator;
     private bool grounded = true;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Jump();
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
             if (grounded)
             {
                 rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-                Debug.Log("Jumped");
             }
         }
     }
@@ -76,7 +74,16 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "Restart Trigger")
+        {
+            Debug.Log("Restarting");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))

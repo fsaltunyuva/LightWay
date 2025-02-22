@@ -68,7 +68,7 @@ public class Hand : MonoBehaviour
                 case "Flashlight":
                     if (currentNode.count <= 0)
                     {
-                        Debug.Log("No flashlight left");
+                        StartCoroutine(uiController.ShowInfoText("El Feneri", 2));
                         return;
                     }
                     // _flashlightRotator.placeFlashLight();
@@ -79,13 +79,21 @@ public class Hand : MonoBehaviour
                     uiController.decreaseFlashlightCount("Flashlight");
                     break;
                 case "Fire":
-                    if(currentNode.count <= 0) return;
+                    if (currentNode.count <= 0)
+                    {
+                        StartCoroutine(uiController.ShowInfoText("Ates", 2));
+                        return;
+                    }
                     Instantiate(firePrefab, atesPreview.transform.position, Quaternion.identity);
                     currentNode.count--;
                     uiController.decreaseFlashlightCount("Fire");
                     break;
                 case "Laser":
-                    if(currentNode.count <= 0) return;
+                    if (currentNode.count <= 0)
+                    {
+                        StartCoroutine(uiController.ShowInfoText("Lazer", 2));
+                        return;
+                    }
                     
                     Vector3 laserPosition = laser.transform.position;
                     Quaternion laserRotation = laser.transform.rotation;
@@ -147,4 +155,5 @@ public class Hand : MonoBehaviour
         flashlightLightSpriteRenderer.color = new Color(flashlightLightSpriteRenderer.color.r, flashlightLightSpriteRenderer.color.g, flashlightLightSpriteRenderer.color.b, 1);
         laserSpriteRenderer.color = new Color(laserSpriteRenderer.color.r, laserSpriteRenderer.color.g, laserSpriteRenderer.color.b, 0);
     }
+    
 }

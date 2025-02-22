@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI flashlightCountText;
     [SerializeField] private TextMeshProUGUI fireCountText;
     [SerializeField] private TextMeshProUGUI laserCountText;
+    [SerializeField] private TextMeshProUGUI infoText;
     
     public void SetInitialValues(int flashlightCount, int fireCount, int laserCount)
     {
@@ -36,5 +37,12 @@ public class UIController : MonoBehaviour
                 laserCountText.text = laserCount.ToString();
                 break;
         }
+    }
+    
+    public IEnumerator ShowInfoText(string lightName, int seconds)
+    {
+        infoText.text = $"Elinde yeteri kadar {lightName} yok!";
+        yield return new WaitForSeconds(seconds);
+        infoText.text = "";
     }
 }
