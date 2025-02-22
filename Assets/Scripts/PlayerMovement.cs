@@ -1,9 +1,10 @@
 
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 1000f; // Speed variable //TODO: ???
+    public float speed = 1000f; // Speed variable 
     public float jumpSpeed = 100f; // Jump speed variable
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement;
@@ -24,9 +25,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Jump();
         movement = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
-        Run();
         FlipSprite();
         _animator.SetBool("walk", movement != Vector2.zero);
+    }
+
+    private void FixedUpdate()
+    {
+        Run();
     }
 
     private void Run(){
