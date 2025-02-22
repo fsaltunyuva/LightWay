@@ -8,11 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 movement;
     [SerializeField] private GameObject yamuk;
     public bool amIFacingLeft = false;
+    private Animator _animator;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,11 +23,13 @@ public class PlayerMovement : MonoBehaviour
         movement = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
         Run();
         FlipSprite();
+        _animator.SetBool("walk", movement != Vector2.zero);
     }
 
     private void Run(){
         Vector2 playerVelocity = new Vector2(movement.x * speed * Time.deltaTime, rb.velocity.y);
         rb.velocity = playerVelocity;
+        
     }
 
     private void FlipSprite()

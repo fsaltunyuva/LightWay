@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 211633533}
   - component: {fileID: 211633536}
   - component: {fileID: 211633537}
+  - component: {fileID: 211633538}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -155,7 +156,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -211,7 +212,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4667d96142e259a4f977c74400affde1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -231,7 +232,7 @@ Transform:
   m_GameObject: {fileID: 211633532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.83, z: 0}
+  m_LocalPosition: {x: 0, y: -0.998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -270,18 +271,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.10474065, y: -0.020836651}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.25, y: 1.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.57381743, y: 0.9916651}
   m_EdgeRadius: 0
 --- !u!114 &211633537
 MonoBehaviour:
@@ -300,6 +301,27 @@ MonoBehaviour:
   movement: {x: 0, y: 0}
   yamuk: {fileID: 3470025815145913157}
   amIFacingLeft: 0
+--- !u!95 &211633538
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211633532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d0ba78ce48190b44b8e19180a00fe66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &350068578
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +382,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9559748, g: 0.18337865, b: 0.18337865, a: 1}
+  m_Color: {r: 0.6855345, g: 0.6855345, b: 0.6855345, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -440,6 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 931355480}
   - component: {fileID: 931355481}
+  - component: {fileID: 931355482}
   m_Layer: 0
   m_Name: "Preview Ate\u015F (Alphas\u0131 0 ba\u015Flamal\u0131)"
   m_TagString: Untagged
@@ -456,8 +479,8 @@ Transform:
   m_GameObject: {fileID: 931355479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.853834, y: -1.1062763, z: 0}
-  m_LocalScale: {x: 0.45331305, y: 0.45331305, z: 0.45331305}
+  m_LocalPosition: {x: 5.853834, y: -0.55, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 0.45331305}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049352076}
@@ -503,7 +526,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac7b21852bba38a4aa7b84826dc1f745, type: 3}
+  m_Sprite: {fileID: -1163572379, guid: c5b4a8e14129b244d87012ce6a833983, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -514,6 +537,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &931355482
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931355479}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb219519577ee9945abd70878f0dd5e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &937148526
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,7 +594,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -716,6 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916325247}
   - component: {fileID: 1916325248}
+  - component: {fileID: 1916325249}
   m_Layer: 0
   m_Name: "Eldeki Ate\u015F (Alphas\u0131 0 ba\u015Flamal\u0131)"
   m_TagString: Untagged
@@ -732,8 +777,8 @@ Transform:
   m_GameObject: {fileID: 1916325246}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36154982, y: 0.027006183, z: 0}
-  m_LocalScale: {x: 0.45331305, y: 0.45331305, z: 0.45331305}
+  m_LocalPosition: {x: -0.07, y: 0.44, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 0.45331305}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049352076}
@@ -778,8 +823,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac7b21852bba38a4aa7b84826dc1f745, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1163572379, guid: c5b4a8e14129b244d87012ce6a833983, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -790,6 +835,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1916325249
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916325246}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb219519577ee9945abd70878f0dd5e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2049352075
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +883,7 @@ Transform:
   m_GameObject: {fileID: 2049352075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.544, y: 0, z: 0}
+  m_LocalPosition: {x: 0.311, y: 0, z: 0}
   m_LocalScale: {x: 0.33414, y: 0.33414, z: 0.33414}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -891,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389898b3523f47c48834769ab5efe63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePrefab: {fileID: 2158031288647607270, guid: 678b4d43924c7464886aff51e5323441, type: 3}
+  firePrefab: {fileID: 257841722957311970, guid: a770ed9f8adaeec4c9e518952aa8ccd4, type: 3}
   atesPreview: {fileID: 931355479}
   atesOnHand: {fileID: 1916325246}
   flashlight: {fileID: 8678172559994431261}
@@ -961,6 +1027,14 @@ PrefabInstance:
     - target: {fileID: 2039197628031742207, guid: 699f85e6376ed4e47a2bd21f7b617253, type: 3}
       propertyPath: m_Name
       value: Placeholder Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135187414235893136, guid: 699f85e6376ed4e47a2bd21f7b617253, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135187414235893136, guid: 699f85e6376ed4e47a2bd21f7b617253, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1058,7 +1132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 167b20206b1197744815b7b9ca93dabb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1144,6 +1218,10 @@ PrefabInstance:
     - target: {fileID: 2925223539525315865, guid: b69eaccc3ed951e41a4425c2c6e803a4, type: 3}
       propertyPath: m_Name
       value: Laser Pivot (Depends on Laser Range)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784741593650863288, guid: b69eaccc3ed951e41a4425c2c6e803a4, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
