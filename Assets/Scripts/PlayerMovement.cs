@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection.Emit;
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb; // Set the variable 'rb' as Rigibody
     public Vector2 movement;
     [SerializeField] private GameObject yamuk;
-    private bool isLookingRight = true;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         } 
         else if (movement.x < 0)
         {
-            isLookingRight = false;
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); 
         }
             
