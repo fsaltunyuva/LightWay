@@ -25,6 +25,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private int flashlightCount = 3;
     [SerializeField] private int fireCount = 3;
     [SerializeField] private int laserCount = 3;
+    [SerializeField] private UIController uiController;
     
 
     private void Start()
@@ -35,6 +36,8 @@ public class Hand : MonoBehaviour
         lightList.AddNode(fireCount, "Fire");
         lightList.AddNode(laserCount, "Laser");
         currentNode = lightList.head;
+        
+        uiController.SetInitialValues(flashlightCount, fireCount, laserCount);
     }
 
     void Update()
@@ -73,11 +76,13 @@ public class Hand : MonoBehaviour
                     //     _flashlightRotator.InstantiateNewFlashlightLight();
                     _flashlightRotator.SecondMethod();
                     currentNode.count--;
+                    uiController.decreaseFlashlightCount("Flashlight");
                     break;
                 case "Fire":
                     if(currentNode.count <= 0) return;
                     Instantiate(firePrefab, atesPreview.transform.position, Quaternion.identity);
                     currentNode.count--;
+                    uiController.decreaseFlashlightCount("Fire");
                     break;
                 case "Laser":
                     if(currentNode.count <= 0) return;
@@ -94,6 +99,7 @@ public class Hand : MonoBehaviour
                     
                     StartCoroutine(DestroyLaserFromLeft(newLaser));
                     currentNode.count--;
+                    uiController.decreaseFlashlightCount("Laser");
                 break;
             }
         }
