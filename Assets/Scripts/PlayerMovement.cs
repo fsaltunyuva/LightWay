@@ -66,7 +66,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Grounded");
-            grounded = true;
+            Vector3 normal = other.GetContact(0).normal;
+            
+            if(normal == Vector3.up)
+                grounded = true;
         }
     }
     
