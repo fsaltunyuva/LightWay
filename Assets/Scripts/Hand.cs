@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Debug = UnityEngine.Debug;
 
 public class Hand : MonoBehaviour
 {
@@ -28,6 +31,9 @@ public class Hand : MonoBehaviour
     [FormerlySerializedAs("laserCount")] [SerializeField] private int laserCost = 4;
     [SerializeField] private int levelPoint = 10;
     [SerializeField] private UIController uiController;
+    private bool isFlashlightTutorial = false;
+    private bool isFireTutorial = false;
+    private bool isLaserTutorial = false;
     
 
     private void Start()
@@ -40,12 +46,33 @@ public class Hand : MonoBehaviour
         currentNode = lightList.head;
         
         uiController.SetInitialValues(flashlightCost, fireCost, laserCost);
+        
+        if(SceneManager.GetActiveScene().name == "Tutorial Flash")
+        {
+            isFlashlightTutorial = true;
+        }
+        else if(SceneManager.GetActiveScene().name == "Tutorial Fire")
+        {
+            isFireTutorial = true;
+            currentLightType = "Fire";
+        }
+        else if(SceneManager.GetActiveScene().name == "Tutorial Laser")
+        {
+            isLaserTutorial = true;
+            currentLightType = "Laser";
+        }
+        
+        Debug.Log($"isFlashlightTutorial: {isFlashlightTutorial}, isFireTutorial: {isFireTutorial}, isLaserTutorial: {isLaserTutorial}");
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            if (isFlashlightTutorial || isFireTutorial || isLaserTutorial)
+            {
+                return;
+            }
             currentNode = currentNode.next;
             (currentCount, currentLightType) = (currentNode.count, currentNode.name);
             
