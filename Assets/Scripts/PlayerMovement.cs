@@ -82,6 +82,12 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Restarting");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        else if (other.gameObject.CompareTag("Door"))
+        {
+            // Load next scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            // TODO: Add a check for the last level
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)

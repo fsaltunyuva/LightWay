@@ -24,7 +24,6 @@ public class Hand : MonoBehaviour
     [SerializeField] private SpriteRenderer laserSpriteRenderer;
     [SerializeField] private int laserDisappearDuration = 5;
     [SerializeField] private GameObject laserDisappearPivot;
-    [SerializeField] private GameObject laserPrefab;
     
     [FormerlySerializedAs("flashlightCount")] [SerializeField] private int flashlightCost = 3;
     [FormerlySerializedAs("fireCount")] [SerializeField] private int fireCost = 5;
