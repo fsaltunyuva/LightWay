@@ -2036,6 +2036,7 @@ MonoBehaviour:
   flashlightSpriteRenderer: {fileID: 1084689135}
   flashlightLightSpriteRenderer: {fileID: 585899609}
   laserSpriteRenderer: {fileID: 1101259692}
+  laserGunSpriteRenderer: {fileID: 1154574859}
   laserDisappearDuration: 15
   laserDisappearPivot: {fileID: 1101259693}
   flashlightCost: 2
@@ -2475,7 +2476,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154574856}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2509,8 +2510,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5fb335cd72b6ebe42bea26b1dd5e2a31, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

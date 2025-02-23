@@ -22,6 +22,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private SpriteRenderer flashlightSpriteRenderer;
     [SerializeField] private SpriteRenderer flashlightLightSpriteRenderer;
     [SerializeField] private SpriteRenderer laserSpriteRenderer;
+    [SerializeField] private SpriteRenderer laserGunSpriteRenderer;
     [SerializeField] private int laserDisappearDuration = 5;
     [SerializeField] private GameObject laserDisappearPivot;
     
@@ -184,6 +185,7 @@ public class Hand : MonoBehaviour
         flashlightSpriteRenderer.color = new Color(flashlightSpriteRenderer.color.r, flashlightSpriteRenderer.color.g, flashlightSpriteRenderer.color.b, 0);
         flashlightLightSpriteRenderer.color = new Color(flashlightLightSpriteRenderer.color.r, flashlightLightSpriteRenderer.color.g, flashlightLightSpriteRenderer.color.b, 0);
         laserSpriteRenderer.color = new Color(laserSpriteRenderer.color.r, laserSpriteRenderer.color.g, laserSpriteRenderer.color.b, 0);
+        laserGunSpriteRenderer.color = new Color(laserGunSpriteRenderer.color.r, laserGunSpriteRenderer.color.g, laserGunSpriteRenderer.color.b, 0);
     }
     
     private void placeLaserOnHand()
@@ -193,6 +195,7 @@ public class Hand : MonoBehaviour
         flashlightSpriteRenderer.color = new Color(flashlightSpriteRenderer.color.r, flashlightSpriteRenderer.color.g, flashlightSpriteRenderer.color.b, 0);
         flashlightLightSpriteRenderer.color = new Color(flashlightLightSpriteRenderer.color.r, flashlightLightSpriteRenderer.color.g, flashlightLightSpriteRenderer.color.b, 0);
         laserSpriteRenderer.color = new Color(laserSpriteRenderer.color.r, laserSpriteRenderer.color.g, laserSpriteRenderer.color.b, 1);
+        laserGunSpriteRenderer.color = new Color(laserGunSpriteRenderer.color.r, laserGunSpriteRenderer.color.g, laserGunSpriteRenderer.color.b, 1);
     }
     
     private void placeFlashlightOnHand()
@@ -202,6 +205,7 @@ public class Hand : MonoBehaviour
         flashlightSpriteRenderer.color = new Color(flashlightSpriteRenderer.color.r, flashlightSpriteRenderer.color.g, flashlightSpriteRenderer.color.b, 1);
         flashlightLightSpriteRenderer.color = new Color(flashlightLightSpriteRenderer.color.r, flashlightLightSpriteRenderer.color.g, flashlightLightSpriteRenderer.color.b, 1);
         laserSpriteRenderer.color = new Color(laserSpriteRenderer.color.r, laserSpriteRenderer.color.g, laserSpriteRenderer.color.b, 0);
+        laserGunSpriteRenderer.color = new Color(laserGunSpriteRenderer.color.r, laserGunSpriteRenderer.color.g, laserGunSpriteRenderer.color.b, 0);
     }
     
 }
