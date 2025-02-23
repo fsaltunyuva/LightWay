@@ -9,40 +9,17 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fireCountText;
     [SerializeField] private TextMeshProUGUI laserCountText;
     [SerializeField] private TextMeshProUGUI infoText;
-    
-    public void SetInitialValues(int flashlightCount, int fireCount, int laserCount)
-    {
-        flashlightCountText.text = flashlightCount.ToString();
-        fireCountText.text = fireCount.ToString();
-        laserCountText.text = laserCount.ToString();
-    }
-    
-    public void decreaseFlashlightCount(string lightType)
-    {
-        switch (lightType)
-        {
-            case "Flashlight":
-                int flashlightCount = int.Parse(flashlightCountText.text);
-                flashlightCount--;
-                flashlightCountText.text = flashlightCount.ToString();
-                break;
-            case "Fire":
-                int fireCount = int.Parse(fireCountText.text);
-                fireCount--;
-                fireCountText.text = fireCount.ToString();
-                break;
-            case "Laser":
-                int laserCount = int.Parse(laserCountText.text);
-                laserCount--;
-                laserCountText.text = laserCount.ToString();
-                break;
-        }
-    }
+    [SerializeField] private TextMeshProUGUI remainingMoneyText;
     
     public IEnumerator ShowInfoText(string lightName, int seconds)
     {
         infoText.text = $"{lightName} kullanabilecek kadar puanın yok!";
         yield return new WaitForSeconds(seconds);
         infoText.text = "";
+    }
+
+    public void UpdateRemainingMoney(int newMoney)
+    {
+        remainingMoneyText.text = "Kalan para : " + newMoney + "<color=#00FF00> $";
     }
 }

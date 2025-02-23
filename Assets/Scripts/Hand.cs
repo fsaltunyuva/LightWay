@@ -44,8 +44,6 @@ public class Hand : MonoBehaviour
         lightList.AddNode(laserCost, "Laser");
         currentNode = lightList.head;
         
-        uiController.SetInitialValues(flashlightCost, fireCost, laserCost);
-        
         if(SceneManager.GetActiveScene().name == "Tutorial Flash")
         {
             isFlashlightTutorial = true;
@@ -60,6 +58,8 @@ public class Hand : MonoBehaviour
             isLaserTutorial = true;
             currentLightType = "Laser";
         }
+        
+        uiController.UpdateRemainingMoney(levelPoint);
         
         Debug.Log($"isFlashlightTutorial: {isFlashlightTutorial}, isFireTutorial: {isFireTutorial}, isLaserTutorial: {isLaserTutorial}");
     }
@@ -106,8 +106,9 @@ public class Hand : MonoBehaviour
                     _flashlightRotator.SecondMethod();
                     //currentNode.count--;
                     levelPoint -= flashlightCost;
+                    uiController.UpdateRemainingMoney(levelPoint);
                     Debug.Log("Current level point: " + levelPoint);
-                    uiController.decreaseFlashlightCount("Flashlight");
+                    //uiController.decreaseFlashlightCount("Flashlight");
                     break;
                 case "Fire":
                     //if (currentNode.count <= 0)
@@ -119,8 +120,9 @@ public class Hand : MonoBehaviour
                     Instantiate(firePrefab, atesPreview.transform.position, Quaternion.identity);
                     //currentNode.count--;
                     levelPoint -= fireCost;
+                    uiController.UpdateRemainingMoney(levelPoint);
                     Debug.Log("Current level point: " + levelPoint);
-                    uiController.decreaseFlashlightCount("Fire");
+                    //uiController.decreaseFlashlightCount("Fire");
                     break;
                 case "Laser":
                     // if (currentNode.count <= 0)
@@ -143,8 +145,9 @@ public class Hand : MonoBehaviour
                     StartCoroutine(DestroyLaserFromLeft(newLaser));
                     //currentNode.count--;
                     levelPoint -= laserCost;
+                    uiController.UpdateRemainingMoney(levelPoint);
                     Debug.Log("Current level point: " + levelPoint);
-                    uiController.decreaseFlashlightCount("Laser");
+                    //uiController.decreaseFlashlightCount("Laser");
                 break;
             }
         }
