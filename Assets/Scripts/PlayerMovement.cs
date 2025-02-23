@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Grounded");
+            //Debug.Log("Grounded");
             grounded = true;
         }
     }
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.name == "Restart Trigger")
         {
-            Debug.Log("Restarting");
+            //Debug.Log("Restarting");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Not Grounded");
+            //Debug.Log("Not Grounded");
             grounded = false;
         }
     }

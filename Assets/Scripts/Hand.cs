@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Hand : MonoBehaviour
 {
@@ -22,9 +23,10 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject laserDisappearPivot;
     [SerializeField] private GameObject laserPrefab;
     
-    [SerializeField] private int flashlightCount = 3;
-    [SerializeField] private int fireCount = 3;
-    [SerializeField] private int laserCount = 3;
+    [FormerlySerializedAs("flashlightCount")] [SerializeField] private int flashlightCost = 3;
+    [FormerlySerializedAs("fireCount")] [SerializeField] private int fireCost = 5;
+    [FormerlySerializedAs("laserCount")] [SerializeField] private int laserCost = 4;
+    [SerializeField] private int levelPoint = 10;
     [SerializeField] private UIController uiController;
     
 
@@ -32,12 +34,12 @@ public class Hand : MonoBehaviour
     {
         lightList = new CircularLinkedList();
         // TODO: Change according to the level's requirements
-        lightList.AddNode(flashlightCount, "Flashlight");
-        lightList.AddNode(fireCount, "Fire");
-        lightList.AddNode(laserCount, "Laser");
+        lightList.AddNode(flashlightCost, "Flashlight");
+        lightList.AddNode(fireCost, "Fire");
+        lightList.AddNode(laserCost, "Laser");
         currentNode = lightList.head;
         
-        uiController.SetInitialValues(flashlightCount, fireCount, laserCount);
+        uiController.SetInitialValues(flashlightCost, fireCost, laserCost);
     }
 
     void Update()
@@ -66,7 +68,8 @@ public class Hand : MonoBehaviour
             switch (currentLightType)
             {
                 case "Flashlight":
-                    if (currentNode.count <= 0)
+                    //if (currentNode.count <= 0)
+                    if(levelPoint - flashlightCost < 0)
                     {
                         StartCoroutine(uiController.ShowInfoText("El Feneri", 2));
                         return;
@@ -75,21 +78,27 @@ public class Hand : MonoBehaviour
                     // if(currentNode.count - 1 > 0)
                     //     _flashlightRotator.InstantiateNewFlashlightLight();
                     _flashlightRotator.SecondMethod();
-                    currentNode.count--;
+                    //currentNode.count--;
+                    levelPoint -= flashlightCost;
+                    Debug.Log("Current level point: " + levelPoint);
                     uiController.decreaseFlashlightCount("Flashlight");
                     break;
                 case "Fire":
-                    if (currentNode.count <= 0)
+                    //if (currentNode.count <= 0)
+                    if(levelPoint - fireCost < 0)    
                     {
                         StartCoroutine(uiController.ShowInfoText("Ates", 2));
                         return;
                     }
                     Instantiate(firePrefab, atesPreview.transform.position, Quaternion.identity);
-                    currentNode.count--;
+                    //currentNode.count--;
+                    levelPoint -= fireCost;
+                    Debug.Log("Current level point: " + levelPoint);
                     uiController.decreaseFlashlightCount("Fire");
                     break;
                 case "Laser":
-                    if (currentNode.count <= 0)
+                    // if (currentNode.count <= 0)
+                    if(levelPoint - laserCost < 0)    
                     {
                         StartCoroutine(uiController.ShowInfoText("Lazer", 2));
                         return;
@@ -106,7 +115,9 @@ public class Hand : MonoBehaviour
                     newLaser.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
                     
                     StartCoroutine(DestroyLaserFromLeft(newLaser));
-                    currentNode.count--;
+                    //currentNode.count--;
+                    levelPoint -= laserCost;
+                    Debug.Log("Current level point: " + levelPoint);
                     uiController.decreaseFlashlightCount("Laser");
                 break;
             }

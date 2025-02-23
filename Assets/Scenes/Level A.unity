@@ -2677,9 +2677,10 @@ MonoBehaviour:
   laserDisappearDuration: 15
   laserDisappearPivot: {fileID: 1798942460}
   laserPrefab: {fileID: 2925223539525315865, guid: b69eaccc3ed951e41a4425c2c6e803a4, type: 3}
-  flashlightCount: 3
-  fireCount: 3
-  laserCount: 3
+  flashlightCost: 3
+  fireCost: 5
+  laserCost: 4
+  levelPoint: 10
   uiController: {fileID: 1881143644}
 --- !u!212 &1716415223
 SpriteRenderer:

@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour
     
     public IEnumerator ShowInfoText(string lightName, int seconds)
     {
-        infoText.text = $"Elinde yeteri kadar {lightName} yok!";
+        infoText.text = $"{lightName} kullanabilecek kadar puanın yok!";
         yield return new WaitForSeconds(seconds);
         infoText.text = "";
     }
