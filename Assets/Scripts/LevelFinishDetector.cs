@@ -9,7 +9,7 @@ public class LevelFinishDetector : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 5)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
                 return;
             }
             
