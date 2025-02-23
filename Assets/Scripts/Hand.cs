@@ -29,7 +29,7 @@ public class Hand : MonoBehaviour
     [FormerlySerializedAs("flashlightCount")] [SerializeField] private int flashlightCost = 3;
     [FormerlySerializedAs("fireCount")] [SerializeField] private int fireCost = 5;
     [FormerlySerializedAs("laserCount")] [SerializeField] private int laserCost = 4;
-    [SerializeField] private int levelPoint = 10;
+    [SerializeField] public int levelPoint = 10;
     [SerializeField] private UIController uiController;
     private bool isFlashlightTutorial = false;
     private bool isFireTutorial = false;

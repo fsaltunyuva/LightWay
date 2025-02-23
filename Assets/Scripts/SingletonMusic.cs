@@ -3,6 +3,8 @@ using UnityEngine;
 public class SingletonMusic : MonoBehaviour
 {
     private static SingletonMusic instance = null;
+    
+    public int birikim = 0;
 
     public static SingletonMusic Instance
     {
