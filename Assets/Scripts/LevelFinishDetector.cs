@@ -7,7 +7,7 @@ public class LevelFinishDetector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Door"))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 4)
+            if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 SceneManager.LoadScene(0);
                 return;
