@@ -7,6 +7,7 @@ public class Tutorial : MonoBehaviour
 {
     public void SkipTutorial()
     {
+        Debug.Log("Skip Tutorial");
         SceneManager.LoadScene(1);
     }
     
