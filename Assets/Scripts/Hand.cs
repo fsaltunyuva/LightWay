@@ -33,6 +33,11 @@ public class Hand : MonoBehaviour
     private bool isFlashlightTutorial = false;
     private bool isFireTutorial = false;
     private bool isLaserTutorial = false;
+
+    [SerializeField] private AudioClip flashlightTickSound;
+    [SerializeField] private AudioClip fireSound;
+    [SerializeField] private AudioClip laserSound;
+    [SerializeField] private AudioSource _audioSource;
     
 
     private void Start()
@@ -103,6 +108,7 @@ public class Hand : MonoBehaviour
                     // _flashlightRotator.placeFlashLight();
                     // if(currentNode.count - 1 > 0)
                     //     _flashlightRotator.InstantiateNewFlashlightLight();
+                    _audioSource.PlayOneShot(flashlightTickSound);
                     _flashlightRotator.SecondMethod();
                     //currentNode.count--;
                     levelPoint -= flashlightCost;
@@ -135,6 +141,8 @@ public class Hand : MonoBehaviour
                     Vector3 laserPosition = laser.transform.position;
                     Quaternion laserRotation = laser.transform.rotation;
                     Vector3 laserScale = laser.transform.lossyScale;
+                    
+                    _audioSource.PlayOneShot(laserSound, 0.6f);
                     
                     GameObject newLaser = Instantiate(laser, laserPosition, laserRotation);
                     newLaser.transform.localScale = laserScale;
