@@ -15,11 +15,13 @@ public class FinalScene : MonoBehaviour
 
     public void PlayAgain()
     {
+        SingletonMusic.Instance.birikim = 0;
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
     
     public void GoToTutorial()
     {
+        SingletonMusic.Instance.birikim = 0;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

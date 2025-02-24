@@ -2171,7 +2171,7 @@ MonoBehaviour:
   flashlightLightSpriteRenderer: {fileID: 585899609}
   laserSpriteRenderer: {fileID: 1101259692}
   laserGunSpriteRenderer: {fileID: 1154574859}
-  laserDisappearDuration: 15
+  laserDisappearDuration: 5
   laserDisappearPivot: {fileID: 1101259693}
   flashlightCost: 2
   fireCost: 4

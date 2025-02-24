@@ -16,11 +16,11 @@ public class LevelFinishDetector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Door"))
         {
-            if (SceneManager.GetActiveScene().buildIndex == 6)
-            {
-                SingletonMusic.Instance.birikim = 0;
-                return;
-            }
+            // if (SceneManager.GetActiveScene().buildIndex == 6)
+            // {
+            //     SingletonMusic.Instance.birikim = 0;
+            //     return;
+            // }
 
 
             _singletonMusic.birikim += _handScript.levelPoint;
