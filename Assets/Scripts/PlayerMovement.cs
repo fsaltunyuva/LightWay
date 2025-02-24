@@ -13,11 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public bool amIFacingLeft = false;
     private Animator _animator;
     private bool grounded = true;
+    private CapsuleCollider2D _capsuleCollider2D;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (grounded)
+            if (IsGrounded())
             {
                 rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             }
@@ -91,5 +93,26 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Not Grounded");
             grounded = false;
         }
+    }
+    
+    private bool IsGrounded()
+    {
+        float rayLength = 0.55f;
+        Vector2 origin = _capsuleCollider2D.bounds.center;
+        //RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, rayLength);
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(origin, Vector2.down, rayLength);
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if(hit.collider.CompareTag("Ground"))
+            {
+                Debug.DrawRay(origin, Vector2.down * rayLength, Color.green);
+                return true;
+            }
+        }
+        
+        Debug.DrawRay(origin, Vector2.down * rayLength, Color.red);
+        return false;
     }
 }

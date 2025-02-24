@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 120
-  jumpSpeed: 4
+  jumpSpeed: 3
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
   yamuk: {fileID: 2046265791}

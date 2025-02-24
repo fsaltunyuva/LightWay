@@ -67,7 +67,7 @@ public class Hand : MonoBehaviour
         
         uiController.UpdateRemainingMoney(levelPoint);
         
-        Debug.Log($"isFlashlightTutorial: {isFlashlightTutorial}, isFireTutorial: {isFireTutorial}, isLaserTutorial: {isLaserTutorial}");
+        //Debug.Log($"isFlashlightTutorial: {isFlashlightTutorial}, isFireTutorial: {isFireTutorial}, isLaserTutorial: {isLaserTutorial}");
     }
 
     void Update()
@@ -114,7 +114,7 @@ public class Hand : MonoBehaviour
                     //currentNode.count--;
                     levelPoint -= flashlightCost;
                     uiController.UpdateRemainingMoney(levelPoint);
-                    Debug.Log("Current level point: " + levelPoint);
+                    //Debug.Log("Current level point: " + levelPoint);
                     //uiController.decreaseFlashlightCount("Flashlight");
                     break;
                 case "Fire":
