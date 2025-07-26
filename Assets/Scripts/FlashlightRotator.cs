@@ -98,6 +98,7 @@ public class FlashlightRotator : MonoBehaviour
         Vector3 worldScale = flashlight.transform.lossyScale;
         
         newFlashlight = Instantiate(flashlight, positionOfFlashlight, worldRotation);
+        newFlashlight.tag = "Ground";
         newFlashlight.transform.localScale = worldScale; // Ölçek elle atanmalı çünkü lossyScale direkt atanamaz
         newFlashlight.transform.SetParent(null); // Child olmaktan çıkar
         

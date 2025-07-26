@@ -146,6 +146,7 @@ public class Hand : MonoBehaviour
                     _audioSource.PlayOneShot(laserSound, 0.6f);
                     
                     GameObject newLaser = Instantiate(laser, laserPosition, laserRotation);
+                    newLaser.transform.GetChild(0).tag = "Ground";
                     newLaser.transform.localScale = laserScale;
                     newLaser.transform.SetParent(null);
                     

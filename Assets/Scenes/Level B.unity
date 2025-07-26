@@ -1105,6 +1105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flashlight Light
       objectReference: {fileID: 0}
+    - target: {fileID: 1780007669490875674, guid: 8f618e5ba8992114c83ce33d0dc0c248, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5756653831506922339, guid: 8f618e5ba8992114c83ce33d0dc0c248, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -2530,6 +2534,10 @@ PrefabInstance:
     - target: {fileID: 5548809435534367968, guid: 54df9bf80fdebc24ebc5b61eb8aeda11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990164396827410063, guid: 54df9bf80fdebc24ebc5b61eb8aeda11, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8078497949902447903, guid: 54df9bf80fdebc24ebc5b61eb8aeda11, type: 3}
       propertyPath: m_Color.a
